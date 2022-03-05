@@ -38,14 +38,10 @@ function MovieList() {
             container
             spacing={{ xs: 2, md: 3 }}
             gap={2}
-            // columns={{ xs: 2, sm: 8, md: 12 }}
-            // sx={{ maxWidth: '30%' }}
           >
             {movies.map((movie, index) => {
               return (
-                <Grid
-                // item xs={2} sm={4} md={4} key={index}
-                >
+                <Grid >
                   <MovieItem
                     movie={movie}
                     onClick={() => detailHandler(movie)}
