@@ -52,11 +52,22 @@ const genres = (state = [], action) => {
     }
 }
 
+// Used to store the detail view movie id
+const detailMovie = (state = {}, action) => {
+    switch (action.type){
+       case 'SET_DETAIL_MOVIE':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        detailMovie,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
