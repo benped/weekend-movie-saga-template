@@ -11,6 +11,7 @@ function MovieItem({ movie }) {
   const history = useHistory();
   const dispatch = useDispatch();
 
+//    Hover state is for mouse over and showing the title
   const [hover, setHover] = useState(false);
   const onHover = () => {
     setHover(true);
@@ -19,7 +20,8 @@ function MovieItem({ movie }) {
   const onLeave = () => {
     setHover(false);
   };
-  console.log(movie);
+//   console.log(movie);
+
 
   const detailHandler = (movie) => {
     //Sending Movie detail to reducer

@@ -4,17 +4,33 @@ import "./index.css";
 import App from "./components/App/App.js";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 // Provider allows us to use redux within our react app
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import logger from "redux-logger";
 // Import saga middleware
 import createSagaMiddleware from "redux-saga";
-import { takeEvery, put, take } from "redux-saga/effects";
+import { takeEvery, put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
 
 // Create the rootSaga generator function
 function* rootSaga() {
   yield takeEvery("FETCH_MOVIES", fetchAllMovies);
   yield takeEvery("FETCH_GENRES", fetchGenre);
+  yield takeEvery("ADD_NEW_MOVIE", addMovie)
+}
+
+function* addMovie(action) {
+
+    console.log('add movie is', action.payload);
+//    const  dispatch = useDispatch();
+
+    const {title, description, url, genre_id } = action.payload;
+    try {
+        yield axios.post(`/api/movie`, {title:title, description: description, poster:url, genre_id:genre_id});
+        //  Does not like having a hook here
+        // dispatch({type: "FETCH_MOVIES"})
+    } catch {
+        console.log('Error on post'); 
+    }
 }
 
 function* fetchAllMovies() {
