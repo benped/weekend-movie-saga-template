@@ -1,0 +1,16 @@
+.centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .wrapper:hover img {
+    opacity: 0.5;
+  }

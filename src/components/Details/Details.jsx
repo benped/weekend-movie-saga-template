@@ -20,21 +20,25 @@ function Details() {
     history.push("/");
   };
 
+
+
+
   return (
     <>
-      <h1> {movie.title}</h1>
-      <img src={movie.poster} />
-      <p>{movie.description}</p>
-      {/* MAP OF GENRES */}
-      {genres.length > 0 ? (
-        genres.map((genre, i) => 
-          <p key={i}>{genre.name}</p>
-        )
-      ) : (
-        <span>No length</span>
-      )}
+      <div>
+        
+        <h1> {movie.title}</h1>
+        <img src={movie.poster} />
+        <p>{movie.description}</p>
+        {/* MAP OF GENRES */}
+        {genres.length > 0 ? (
+          genres.map((genre, i) => <p key={i}>{genre.name}</p>)
+        ) : (
+          <span></span>
+        )}
 
-      <button onClick={backButton}>Back to Movies</button>
+        <button onClick={backButton}>Back to Movies</button>
+      </div>
     </>
   );
 }
