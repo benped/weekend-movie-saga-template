@@ -13,8 +13,10 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    const detailHandler = (movieId) {
-        dispatch({type: 'SET_DETAIL_MOVIE', payload: movieId})
+    const detailHandler = (movie) => {
+        //Sending Movie detail to reducer
+        dispatch({type: 'SET_DETAIL_MOVIE', payload: movie})
+        //pushing into details
         history.push('/details')
     }
 
@@ -24,7 +26,7 @@ function MovieList() {
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        <div key={movie.id} onClick={detailHandler(movie.id)}>
+                        <div key={movie.id} onClick={() => detailHandler(movie)}>
                             <h3>{movie.title}</h3>
                             <img src={movie.poster} alt={movie.title}/>
                         </div>
