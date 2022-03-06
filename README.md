@@ -38,6 +38,11 @@ This app was created to store and view movies, movie posters, genres and descrip
 - Material UI
 - Sagas
 
+## Screenshots
+![Image of the Add new movie input](./wireframes/AddMovie.png?raw=true "Add New Movie")
+![Image of Detail Page](./wireframes/DetailPage.png?raw=true "Detail View")
+![Front page with all movies](./wireframes/FrontPage.png?raw=true "Main Page")
+
 ## Reflection
 I worked to stretch my sql knowledge to make the simplest possible request to the database to get the most databack. Particularly proud I got the route parameters to work so that I can refresh and correctly load details. 
 I wish I had been able to make the cards a little more dynamic, potentially a load animation and figure out how to get the images to cover the card, no matter the input size. 
