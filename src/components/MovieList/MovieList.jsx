@@ -41,7 +41,7 @@ function MovieList() {
           >
             {movies.map((movie, index) => {
               return (
-                <Grid key={index}>
+                <Grid key={index} >
                   <MovieItem
                     movie={movie}
                     onClick={() => detailHandler(movie)}

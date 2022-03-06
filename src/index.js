@@ -25,6 +25,8 @@ function* addMovie(action) {
 
     const {title, description, url, genre_id } = action.payload;
     try {
+        console.log('inside try add Movie');
+        
         yield axios.post(`/api/movie`, {title:title, description: description, poster:url, genre_id:genre_id});
         //  Does not like having a hook here
         // dispatch({type: "FETCH_MOVIES"})
