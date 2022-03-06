@@ -8,9 +8,13 @@
   .container {
     position: relative;
     text-align: center;
-    color: white;
   }
 
   .wrapper:hover img {
     opacity: 0.5;
+  }
+
+  img {
+    max-width: 200px;
+    max-height: 350px;
   }

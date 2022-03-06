@@ -38,7 +38,7 @@ function MovieItem({ movie }) {
         onMouseLeave={onLeave}
         key={movie.id}
         onClick={() => detailHandler(movie)}
-        
+        sx={{height:300, width: 200}}
       >
 
         <CardMedia component="img" src={movie.poster} alt={movie.title} />

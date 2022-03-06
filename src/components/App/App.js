@@ -2,7 +2,7 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import MovieList from "../MovieList/MovieList";
 import Details from "../Details/Details";
-import DeleteForm from '../DeleteForm/DeleteForm'
+import DeleteForm from '../AddForm/AddForm'
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
