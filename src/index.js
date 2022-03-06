@@ -46,10 +46,10 @@ function* fetchAllMovies() {
   }
 }
 
-function* fetchGenre() {
-  const detailMovie = yield take("FETCH_GENRES");
-  console.log("inside fetchGenre", detailMovie.payload.id);
-  const id = detailMovie.payload.id;
+function* fetchGenre(action) {
+  const detailMovie = action.payload;
+  console.log("inside fetchGenre", detailMovie.id);
+  const id = detailMovie.id;
 
   try {
     const movie_genres = yield axios.get(`/api/genre/${id}`);
