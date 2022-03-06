@@ -143,18 +143,20 @@ function DeleteForm() {
         </DialogActions>
       </Dialog>
 
+{!open ? 
       <Fab
       open={!open}
-        style={style}
-        variant="extended"
-        color="primary"
-        aria-label="add"
-        onClick={handleClickOpen}
+      style={style}
+      variant="extended"
+      color="primary"
+      aria-label="add"
+      onClick={handleClickOpen}
       >
         Add Movie
         <AddIcon sx={{ ml: 1 }} />
       </Fab>
-        
+      : <span></span>  
+      }
         </>
     )
 }
