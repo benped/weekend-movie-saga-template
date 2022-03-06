@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  z-index: 100;
 }
 
 
@@ -22,3 +23,19 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.fab {
+  margin: 0px;
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  position: relative;
+};
+
+h1 {
+  padding: auto;
+  margin-top: 20px;
+  margin-left:20px;
+}
+

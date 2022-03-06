@@ -1,0 +1,34 @@
+.centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .container {
+    position: relative;
+    text-align: center;
+  }
+
+  .wrapper:hover img {
+
+    opacity: 0.2;
+  }
+
+  img {
+    /* max-width: 200px;
+    max-height: 350px; */
+    object-fit: fill;
+  }
+
+  h2.centered {
+    text-align: left;
+    font-size: 3vw;
+  } 
+
+  h1 {
+    text-align: left;
+    padding-left: 90px;
+    margin-top: 0;
+    padding-top: 50px;
+  }
