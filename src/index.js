@@ -15,24 +15,29 @@ import axios from "axios";
 function* rootSaga() {
   yield takeEvery("FETCH_MOVIES", fetchAllMovies);
   yield takeEvery("FETCH_GENRES", fetchGenre);
-  yield takeEvery("ADD_NEW_MOVIE", addMovie)
+  yield takeEvery("ADD_NEW_MOVIE", addMovie);
+  yield takeEvery("FETCH_MOVIE", fetchDetailMovie);
 }
 
 function* addMovie(action) {
+  console.log("add movie is", action.payload);
+  //    const  dispatch = useDispatch();
 
-    console.log('add movie is', action.payload);
-//    const  dispatch = useDispatch();
+  const { title, description, url, genre_id } = action.payload;
+  try {
+    console.log("inside try add Movie");
 
-    const {title, description, url, genre_id } = action.payload;
-    try {
-        console.log('inside try add Movie');
-        
-        yield axios.post(`/api/movie`, {title:title, description: description, poster:url, genre_id:genre_id});
-        //  Does not like having a hook here
-        // dispatch({type: "FETCH_MOVIES"})
-    } catch {
-        console.log('Error on post'); 
-    }
+    yield axios.post(`/api/movie`, {
+      title: title,
+      description: description,
+      poster: url,
+      genre_id: genre_id,
+    });
+    //  Does not like having a hook here
+    // dispatch({type: "FETCH_MOVIES"})
+  } catch {
+    console.log("Error on post");
+  }
 }
 
 function* fetchAllMovies() {
@@ -46,14 +51,29 @@ function* fetchAllMovies() {
   }
 }
 
+function* fetchDetailMovie(action) {
+  // get movie from the DB
+  console.log("action.payload is", action.payload);
+
+  try {
+    console.log('Inside try fetch Movie Detail');
+    
+    const movies = yield axios.get(`/api/movie/${action.payload}`);
+    console.log("get one:", movies.data);
+    yield put({ type: "SET_DETAIL_MOVIE", payload: movies.data[0] });
+  } catch {
+    console.log("get detail movie error");
+  }
+}
+
 function* fetchGenre(action) {
   const detailMovie = action.payload;
-  console.log("inside fetchGenre", detailMovie.id);
-  const id = detailMovie.id;
+  console.log("inside fetchGenre", action);
+  const id = detailMovie;
 
   try {
     const movie_genres = yield axios.get(`/api/genre/${id}`);
-    console.log("get all:", movie_genres.data);
+    console.log("get all genres:", movie_genres.data);
     yield put({ type: "SET_DETAIL_GENRE", payload: movie_genres.data });
   } catch {
     console.log("Error on get genres");

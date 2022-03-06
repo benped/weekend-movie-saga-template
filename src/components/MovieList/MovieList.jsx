@@ -6,10 +6,8 @@ import { useHistory } from "react-router-dom";
 
 import MovieItem from "../MovieItem/MovieItem";
 
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+
 
 function MovieList() {
   const history = useHistory();
@@ -22,22 +20,14 @@ function MovieList() {
 
   return (
     <main>
-      <h1>MovieList</h1>
-      {/* <section className="movies"> */}
-        {/* <Box sx={{ flexGrow: 5}}> */}
-        <Box
-          m={2}
-          p={3}
-          display="flex"
-          sx={{ display: "flex", justifyContent: "center" }}
-            direction="row"
-            alignItems="center"
-            justifyContent="center"
-        >
+
           <Grid
             container
             spacing={{ xs: 2, md: 3 }}
             gap={2}
+            m={2}
+          p={3}
+            sx={{ display: "flex", justifyContent: "center" }}
           >
             {movies.map((movie, index) => {
               return (
@@ -50,9 +40,8 @@ function MovieList() {
               );
             })}
           </Grid>
-        </Box>
-        {/* </Box> */}
-      {/* </section> */}
+   
+ 
     </main>
   );
 }

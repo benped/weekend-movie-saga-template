@@ -33,7 +33,7 @@ function MovieItem({ movie }) {
   return (
     <>
       <Card
-        className="container wrapper"
+        className="container wrapper classes.card"
         onMouseEnter={onHover}
         onMouseLeave={onLeave}
         key={movie.id}
@@ -44,7 +44,7 @@ function MovieItem({ movie }) {
         <CardMedia component="img" src={movie.poster} alt={movie.title} />
 
         {hover ? (
-          <h3 className="centered">{movie.title}</h3>
+          <h2 className="centered">{movie.title}</h2>
         ) : (
           <span className="centered"></span>
         )}

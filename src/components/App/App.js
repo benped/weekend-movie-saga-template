@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>The Movies Saga!</h1>
+      <h1>The Movies!</h1>
 
       <Router>
       <Route path='/' exact>
@@ -25,7 +25,7 @@ function App() {
           <MovieList />
         </Route>
 
-        <Route path="/details">
+        <Route path="/details/:id">
           <Details />
         </Route>
       </Router>
