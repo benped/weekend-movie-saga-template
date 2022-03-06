@@ -17,66 +17,70 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
-import { Autocomplete } from '@mui/material'
-
+import { Autocomplete } from "@mui/material";
 
 function DeleteForm() {
+  const style = {
+    margin: 0,
+    top: 40,
+    right: 20,
+    bottom: "auto",
+    left: "auto",
+    position: "fixed",
+    zIndex: 9999,
+  };
 
-    const style = {
-        margin: 0,
-        top: 20,
-        right: 20,
-        bottom: "auto",
-        left: "auto",
-        position: "fixed",
-        zIndex: 9999,
-      };
-    
-      const [open, setOpen] = useState(false);
-      const [genre, setGenre] = useState('');
-      const [title, setTitle] = useState("");
-      const [url, setUrl] = useState("");
-      const [description, setDescription] = useState("");
-      const dispatch = useDispatch();
-    
-      const handleClickOpen = () => {
-          console.log('In handle open');
-        setOpen(true);
-      };
-    
-      const handleClose = () => {
-          console.log('IN handle close');
-        setOpen(false);
-      };
-    
-      const handleSave = () => {
-        console.log('IN Handle Save');
-        dispatch({type:'ADD_NEW_MOVIE',payload :{title:title,url:url,description:description,genre_id:genre}})
-        dispatch({type: "FETCH_MOVIES"})
-    
-        setOpen(false);
-        setGenre('');
-        setTitle('');
-        setUrl('');
-        setDescription('');
-      };
-    
-      const handleChange = (event) => {
-        setGenre(event.target.value);
-      };
+  const [open, setOpen] = useState(false);
+  const [genre, setGenre] = useState("");
+  const [title, setTitle] = useState("");
+  const [url, setUrl] = useState("");
+  const [description, setDescription] = useState("");
+  const dispatch = useDispatch();
 
+  const handleClickOpen = () => {
+    console.log("In handle open");
+    setOpen(true);
+  };
 
-    return (
-        <>
-        
-        <Dialog open={open} onClose={handleClose}>
+  const handleClose = () => {
+    console.log("IN handle close");
+    setOpen(false);
+  };
+
+  const handleSave = () => {
+    console.log("IN Handle Save");
+    dispatch({
+      type: "ADD_NEW_MOVIE",
+      payload: {
+        title: title,
+        url: url,
+        description: description,
+        genre_id: genre,
+      },
+    });
+    dispatch({ type: "FETCH_MOVIES" });
+
+    setOpen(false);
+    setGenre("");
+    setTitle("");
+    setUrl("");
+    setDescription("");
+  };
+
+  const handleChange = (event) => {
+    setGenre(event.target.value);
+  };
+
+  return (
+    <>
+      <Dialog open={open} onClose={handleClose}>
         <DialogTitle>New Movie</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Please Enter Movie Information Below
           </DialogContentText>
           <TextField
-          value={title}
+            value={title}
             margin="dense"
             id="name"
             label="Movie Title"
@@ -84,10 +88,10 @@ function DeleteForm() {
             fullWidth
             variant="standard"
             onChange={(event) => setTitle(event.target.value)}
-            autoComplete='false'
+            autoComplete="false"
           />
           <TextField
-          value={url}
+            value={url}
             margin="dense"
             id="url"
             label="Movie Poster URL"
@@ -143,22 +147,23 @@ function DeleteForm() {
         </DialogActions>
       </Dialog>
 
-{!open ? 
-      <Fab
-      open={!open}
-      style={style}
-      variant="extended"
-      color="primary"
-      aria-label="add"
-      onClick={handleClickOpen}
-      >
-        Add Movie
-        <AddIcon sx={{ ml: 1 }} />
-      </Fab>
-      : <span></span>  
-      }
-        </>
-    )
+      {!open ? (
+        <Fab
+          open={!open}
+          style={style}
+          variant="extended"
+          color="primary"
+          aria-label="add"
+          onClick={handleClickOpen}
+        >
+          Add Movie
+          <AddIcon sx={{ ml: 1 }} />
+        </Fab>
+      ) : (
+        <span></span>
+      )}
+    </>
+  );
 }
 
 export default DeleteForm;

@@ -16,8 +16,9 @@
   }
 
   img {
-    max-width: 200px;
-    max-height: 350px;
+    /* max-width: 200px;
+    max-height: 350px; */
+    object-fit: fill;
   }
 
   h2.centered {
@@ -27,5 +28,7 @@
 
   h1 {
     text-align: left;
-    padding-left: 50px;
+    padding-left: 90px;
+    margin-top: 0;
+    padding-top: 50px;
   }

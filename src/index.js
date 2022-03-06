@@ -138,9 +138,23 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
+const styles = theme => ({
+    Card: {
+      width: 300,
+      margin: 'auto'
+    },
+    Media: {
+      height: 550,
+      width: '100%',
+      objectFit: 'cover'
+    }
+  });
+
+  
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={storeInstance}>
+
       <App />
     </Provider>
   </React.StrictMode>,

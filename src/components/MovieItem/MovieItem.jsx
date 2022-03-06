@@ -30,6 +30,15 @@ function MovieItem({ movie }) {
     history.push(`/details/${movie.id}`);
   };
 
+  const styles = theme => ({
+    CardMedia: {
+      height: auto,
+      width: '100%',
+      objectFit: 'cover'
+    }
+  });
+
+
   return (
     <>
       <Card
@@ -38,10 +47,10 @@ function MovieItem({ movie }) {
         onMouseLeave={onLeave}
         key={movie.id}
         onClick={() => detailHandler(movie)}
-        sx={{height:300, width: 200}}
+        sx={{height:290, width: 200}}
       >
 
-        <CardMedia component="img" src={movie.poster} alt={movie.title} />
+        <CardMedia objectFit='fill' component="img" src={movie.poster} alt={movie.title} />
 
         {hover ? (
           <h2 className="centered">{movie.title}</h2>

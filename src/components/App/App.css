@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  z-index: 100;
 }
 
 
@@ -31,3 +32,10 @@
   left: auto;
   position: relative;
 };
+
+h1 {
+  padding: auto;
+  margin-top: 20px;
+  margin-left:20px;
+}
+
